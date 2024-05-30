@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: jobrunr-couchbase
+  couchbase:
+    connection-string: couchbase://localhost
+    username: admin
+    password: admin123
+
+  data:
+    couchbase:
+      bucket-name: testbucket
+      auto-index: true
+      scope-name: testscope
+
+org:
+  jobrunr:
+    background-job-server:
+      enabled: true
+    dashboard:
+      enabled: true
+      port: 8000
+    database:
+      bucket-name: ${spring.data.couchbase.bucket-name}
+
+logging:
+  level:
+    root: warn
+    org.springframework.data: debug
